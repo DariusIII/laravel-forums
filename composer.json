@@ -13,6 +13,13 @@
             "url": "https://github.com/dariusiii/vanilla-forums"
         }
     ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "DariusIII\\Forum\\ForumServiceProvider"
+            ]
+        }
+    },
     "require": {
         "dariusiii/vanilla-forums": "dev-master",
         "laravel/framework": "^5.8",
