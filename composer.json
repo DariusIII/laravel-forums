@@ -10,11 +10,11 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/vanilla/vanilla"
+            "url": "https://github.com/dariusiii/vanilla-forums"
         }
     ],
     "require": {
-        "vanilla/vanilla": "dev-master",
+        "dariusiii/vanilla-forums": "dev-master",
         "laravel/framework": "^5.8",
         "watson/validating": "^3.2.0",
         "felixkiss/uniquewith-validator": "^3.2.0"
