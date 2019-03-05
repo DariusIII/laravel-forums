@@ -1,6 +1,6 @@
 <?php
 
-namespace BishopB\Forum;
+namespace DariusIII\Forum;
 
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
@@ -39,7 +39,7 @@ class VanillaMigrate extends Command
             }
         }
 
-        $options['--package'] = 'bishopb/laravel-forums';
+        $options['--package'] = 'dariusiii/laravel-forums';
 
         $this->call('migrate', $options);
 	}

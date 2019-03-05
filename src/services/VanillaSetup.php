@@ -1,6 +1,6 @@
 <?php
 
-namespace BishopB\Forum;
+namespace DariusIII\Forum;
 
 /**
  * Perform the Vanilla setup tasks, just like someone did it manually.
@@ -10,7 +10,7 @@ class VanillaSetup
     use VanillaHelperTrait;
 
     /**
-     * Convince Vanilla it's installed.  This writes out static code and config,
+     * This writes out static code and config,
      * some of which will be overwritten at run-time to reflect the latest
      * values.  We have to write these out statically to convince Vanilla
      * it's installed.

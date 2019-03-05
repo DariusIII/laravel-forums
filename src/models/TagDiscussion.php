@@ -1,6 +1,6 @@
 <?php
 
-namespace BishopB\Forum;
+namespace DariusIII\Forum;
 
 class TagDiscussion extends BaseModel
 {
@@ -30,20 +30,20 @@ class TagDiscussion extends BaseModel
     // relationships
     public function tag()
     {
-        return $this->hasOne('\BishopB\Forum\Tag', 'TagID', 'TagID');
+        return $this->hasOne('\DariusIII\Forum\Tag', 'TagID', 'TagID');
     }
 
     public function discussion()
     {
         return $this->hasOne(
-            '\BishopB\Forum\Discussion', 'DiscussionID', 'DiscussionID'
+            '\DariusIII\Forum\Discussion', 'DiscussionID', 'DiscussionID'
         );
     }
 
     public function category()
     {
         return $this->hasOne(
-            '\BishopB\Forum\Category', 'CategoryID', 'CategoryID'
+            '\DariusIII\Forum\Category', 'CategoryID', 'CategoryID'
         );
     }
 }

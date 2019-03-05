@@ -1,6 +1,6 @@
 <?php
 
-namespace BishopB\Forum;
+namespace DariusIII\Forum;
 
 class Conversation extends BaseModel
 {
@@ -40,28 +40,28 @@ class Conversation extends BaseModel
     public function messages()
     {
         return $this->hasMany(
-            '\BishopB\Forum\ConversationMessage', 'ConversationID', 'ConversationID'
+            '\DariusIII\Forum\ConversationMessage', 'ConversationID', 'ConversationID'
         );
     }
 
     public function first_message()
     {
         return $this->hasOne(
-            '\BishopB\Forum\ConversationMessage', 'MessageID', 'FirstMessageID'
+            '\DariusIII\Forum\ConversationMessage', 'MessageID', 'FirstMessageID'
         );
     }
 
     public function last_message()
     {
         return $this->hasOne(
-            '\BishopB\Forum\ConversationMessage', 'MessageID', 'LastMessageID'
+            '\DariusIII\Forum\ConversationMessage', 'MessageID', 'LastMessageID'
         );
     }
 
     public function regarding()
     {
         return $this->hasOne(
-            '\BishopB\Forum\Regarding', 'RegardingID', 'RegardingID'
+            '\DariusIII\Forum\Regarding', 'RegardingID', 'RegardingID'
         );
     }
 }

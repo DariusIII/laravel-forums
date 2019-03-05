@@ -1,6 +1,6 @@
 <?php
 
-namespace BishopB\Forum;
+namespace DariusIII\Forum;
 
 /**
  * Occurs when we cannot setup Vanilla Forums.

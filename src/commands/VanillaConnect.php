@@ -1,6 +1,6 @@
 <?php
 
-namespace BishopB\Forum;
+namespace DariusIII\Forum;
 
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;

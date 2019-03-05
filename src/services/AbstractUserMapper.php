@@ -1,6 +1,6 @@
 <?php
 
-namespace BishopB\Forum;
+namespace DariusIII\Forum;
 
 /**
  * Base class for user mappers.  Defines the `current()` method to defer its
@@ -9,9 +9,9 @@ namespace BishopB\Forum;
 abstract class AbstractUserMapper implements UserMapperInterface
 {
     /**
-     * @return BishopB\Forum\User
-     * @throws BishopB\Forum\NoVanillaUserMappedToAuthenticatedUser
-     * @throws BishopB\Forum\NoVanillaUserMappedToGuest
+     * @return DariusIII\Forum\User
+     * @throws DariusIII\Forum\NoVanillaUserMappedToAuthenticatedUser
+     * @throws DariusIII\Forum\NoVanillaUserMappedToGuest
      */
     public function current()
     {

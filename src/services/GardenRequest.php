@@ -1,6 +1,6 @@
 <?php
 
-namespace BishopB\Forum;
+namespace DariusIII\Forum;
 
 /**
  * Our own Request handler, which will be injected into Vanilla for its use.

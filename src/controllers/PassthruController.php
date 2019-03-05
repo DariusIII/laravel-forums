@@ -1,6 +1,6 @@
 <?php
 
-namespace BishopB\Forum;
+namespace DariusIII\Forum;
 
 use Illuminate\Http\Request;
 use Illuminate\Config\Repository as Config;
@@ -12,7 +12,23 @@ use Illuminate\Config\Repository as Config;
  */
 class PassthruController extends \Controller
 {
-    public function __construct(Request $request, UserMapperInterface $mapper)
+	/**
+	 * @var \Illuminate\Http\Request
+	 */
+	private $request;
+	
+	/**
+	 * @var \DariusIII\Forum\UserMapperInterface
+	 */
+	private $mapper;
+	
+	/**
+	 * PassthruController constructor.
+	 *
+	 * @param \Illuminate\Http\Request             $request
+	 * @param \DariusIII\Forum\UserMapperInterface $mapper
+	 */
+	public function __construct(Request $request, UserMapperInterface $mapper)
     {
         $this->request = $request;
         $this->mapper  = $mapper;

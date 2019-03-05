@@ -1,6 +1,6 @@
 <?php
 
-namespace BishopB\Forum;
+namespace DariusIII\Forum;
 
 class NoVanillaUserMappedToAuthenticatedUser extends NoVanillaUserMappedToUser
 {

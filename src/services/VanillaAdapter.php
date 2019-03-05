@@ -1,6 +1,6 @@
 <?php
 
-namespace BishopB\Forum;
+namespace DariusIII\Forum;
 
 /**
  * This class adapts the Vanilla Forums early runtime environment to
@@ -18,7 +18,7 @@ class VanillaAdapter
      */
     public static function code()
     {
-        return '<?php with(new \BishopB\Forum\VanillaAdapter)->run();';
+        return '<?php with(new \DariusIII\Forum\VanillaAdapter)->run();';
     }
 
     /**
@@ -50,7 +50,7 @@ class VanillaAdapter
         }
 
         \Gdn::FactoryInstall(
-            \Gdn::AliasDatabase, '\BishopB\Forum\GardenDatabase',
+            \Gdn::AliasDatabase, '\DariusIII\Forum\GardenDatabase',
             NULL, \Gdn::FactorySingleton, [ 'Database' ]
         );
     }
@@ -83,7 +83,7 @@ class VanillaAdapter
     public function adapt_request()
     {
         \Gdn::FactoryInstall(
-            \Gdn::AliasRequest, '\BishopB\Forum\GardenRequest',
+            \Gdn::AliasRequest, '\DariusIII\Forum\GardenRequest',
             NULL, \Gdn::FactoryRealSingleton, 'Create'
         );
     }
@@ -94,7 +94,7 @@ class VanillaAdapter
     public function adapt_pluginmanager()
     {
         \Gdn::FactoryInstall(
-            \Gdn::AliasPluginManager, '\BishopB\Forum\GardenPluginManager'
+            \Gdn::AliasPluginManager, '\DariusIII\Forum\GardenPluginManager'
         );
     }
 
@@ -104,7 +104,7 @@ class VanillaAdapter
      */
     public function adapt_smarty()
     {
-        \Gdn::FactoryInstall('ViewHandler.tpl', '\BishopB\Forum\GardenSmarty');
+        \Gdn::FactoryInstall('ViewHandler.tpl', '\DariusIII\Forum\GardenSmarty');
     }
 
     /**

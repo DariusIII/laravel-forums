@@ -10,7 +10,7 @@ return [
      *
      * The title that appears on every page in the forum.
      */
-    'title' => 'Laravel Forums',
+    'title' => env('FORUMS_TITLE', 'Laravel Forums'),
 
     /**
      * @param string default-controller

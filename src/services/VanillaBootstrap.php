@@ -1,6 +1,6 @@
 <?php
 
-namespace BishopB\Forum;
+namespace DariusIII\Forum;
 
 /**
  * Do what's necessary to get Vanilla's framework running.
@@ -11,7 +11,7 @@ class VanillaBootstrap
 
     /**
      * Boot up Vanilla.
-     * 
+     *
      * Much of this ripped out of Vanilla's index.php
      */
     public function call(callable $callback)
@@ -54,7 +54,7 @@ class VanillaBootstrap
     protected function define_constants()
     {
         $global_theme_path = __DIR__ . '/../views/themes';
-        $local_theme_path  = app_path() . '/views/packages/bishopb/laravel-forums/themes';
+        $local_theme_path  = app_path() . '/views/packages/dariusiii/laravel-forums/themes';
 
         $constants = [
             'APPLICATION'         => 'Vanilla',

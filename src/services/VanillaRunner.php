@@ -1,6 +1,6 @@
 <?php
 
-namespace BishopB\Forum;
+namespace DariusIII\Forum;
 
 /**
  * Provides a mechanism to run Vanilla inside of Laravel.
@@ -8,10 +8,17 @@ namespace BishopB\Forum;
 class VanillaRunner
 {
     use VanillaHelperTrait;
-
-    /**
-     * Log the given user in to this session
-     */
+    
+	/**
+	 * @var DariusIII\Forum\User
+	 */
+    private $user;
+	
+	/**
+	 * Log the given user in to this session
+	 *
+	 * @param \DariusIII\Forum\User $user
+	 */
     public function login(User $user)
     {
         $this->user = $user;
@@ -38,25 +45,25 @@ class VanillaRunner
         $bootstrap = new VanillaBootstrap();
         $bootstrap->call(function () use ($user, $segments) {
             // Create the session and stuff the user in
-            \Gdn::Authenticator()->SetIdentity($user->getKey(), false /* no persist */);
-            \Gdn::Session()->Start(false /* use set identity */, false /* no persist */);
-            \Gdn::Session()->SetPreference('Authenticator', 'Gdn_Authenticator');
+            \Gdn::authenticator()->setIdentity($user->getKey(), false /* no persist */);
+            \Gdn::session()->start(false /* use set identity */, false /* no persist */);
+            \Gdn::session()->setPreference('Authenticator', 'Gdn_Authenticator');
 
             // Create and configure the dispatcher.
-            $Dispatcher = \Gdn::Dispatcher();
+            $Dispatcher = \Gdn::dispatcher();
 
-            $EnabledApplications = \Gdn::ApplicationManager()->EnabledApplicationFolders();
-            $Dispatcher->EnabledApplicationFolders($EnabledApplications);
-            $Dispatcher->PassProperty('EnabledApplications', $EnabledApplications);
+            $EnabledApplications = \Gdn::applicationManager()->enabledApplicationFolders();
+            $Dispatcher->enabledApplicationFolders($EnabledApplications);
+            $Dispatcher->passProperty('EnabledApplications', $EnabledApplications);
 
             // Process the request.
-            $Dispatcher->Start();
-            $Dispatcher->Dispatch(implode('/', $segments));
+            $Dispatcher->start();
+            $Dispatcher->dispatch(implode('/', $segments));
         });
     }
 
     /**
-     * Determine if these segments refer to a static, on disk asset and, 
+     * Determine if these segments refer to a static, on disk asset and,
      * if so, return the path to it.
      *
      * @param array $segments
@@ -68,7 +75,7 @@ class VanillaRunner
         $implode = '/'. implode('/', $segments);
         $targets = [
             // a theme file published to the app?
-            app_path() . '/views/packages/bishopb/laravel-forums' . $implode,
+            app_path() . '/views/packages/dariusiii/laravel-forums' . $implode,
 
             // a theme file in this package?
             dirname(__DIR__) . '/views' . $implode,

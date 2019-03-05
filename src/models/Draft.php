@@ -1,6 +1,6 @@
 <?php
 
-namespace BishopB\Forum;
+namespace DariusIII\Forum;
 
 class Draft extends BaseModel
 {
@@ -40,14 +40,14 @@ class Draft extends BaseModel
     public function discussion()
     {
         return $this->hasOne(
-            '\BishopB\Forum\Discussion', 'DiscussionID', 'DiscussionID'
+            '\DariusIII\Forum\Discussion', 'DiscussionID', 'DiscussionID'
         );
     }
 
     public function category()
     {
         return $this->hasOne(
-            '\BishopB\Forum\Category', 'CategoryID', 'CategoryID'
+            '\DariusIII\Forum\Category', 'CategoryID', 'CategoryID'
         );
     }
 }

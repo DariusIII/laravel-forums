@@ -1,6 +1,6 @@
 <?php
 
-namespace BishopB\Forum;
+namespace DariusIII\Forum;
 
 class Activity extends BaseModel
 {
@@ -45,29 +45,29 @@ class Activity extends BaseModel
     public function type()
     {
         return $this->hasOne(
-            '\BishopB\Forum\ActivityType', 'ActivityTypeID', 'ActivityTypeID'
+            '\DariusIII\Forum\ActivityType', 'ActivityTypeID', 'ActivityTypeID'
         );
     }
 
     public function comments()
     {
         return $this->hasMany(
-            '\BishopB\Forum\ActivityComment', 'ActivityID', 'ActivityID'
+            '\DariusIII\Forum\ActivityComment', 'ActivityID', 'ActivityID'
         );
     }
 
     public function user()
     {
-        return $this->hasOne('\BishopB\Forum\User', 'UserID', 'ActivityUserID');
+        return $this->hasOne('\DariusIII\Forum\User', 'UserID', 'ActivityUserID');
     }
 
     public function user_to_notify()
     {
-        
+    
     }
 
     public function user_regarding()
     {
-        return $this->hasOne('\BishopB\Forum\User', 'UserID', 'RegardingUserID');
+        return $this->hasOne('\DariusIII\Forum\User', 'UserID', 'RegardingUserID');
     }
 }

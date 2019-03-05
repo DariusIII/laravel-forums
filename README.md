@@ -13,27 +13,27 @@ Sound like what you need then?  Then this is your package!  We've packaged the e
   * Modify the look and feel using templates.
   * Configure the forums using the typical configuration files.
 
-**WARNING**: This package is pre-alpha and under active development. [Please report issues](https://github.com/bishopb/laravel-forums/issues) and look-out for BC breakage.
+**WARNING**: This package is pre-alpha and under active development. [Please report issues](https://github.com/dariusiii/laravel-forums/issues) and look-out for BC breakage.
 
 ## Requirements
 You will need:
- 1. [Laravel 4.2](http://laravel.com)
+ 1. [Laravel 5.8](http://laravel.com)
  2. [MySQL 5](http://mysql.com)
 
 ## Installation
 Edit your `composer.json` to include:
 ```json
 "require": {
-    "bishopb/laravel-forums": "~0.1"
+    "dariusiii/laravel-forums": "~0.1"
 },
 ```
-Run `composer update bishopb/laravel-forums --no-dev`.  
+Run `composer update dariusiii/laravel-forums --no-dev`.  
 
 Add the package service provider to your `app/config/app.php`:
 ```php
 'providers' => array (
     // ... other providers here
-    'BishopB\Forum\ForumServiceProvider',
+    'DariusIII\Forum\ForumServiceProvider',
 ),
 ```
 Install the migrations: `php artisan forum:migrate`  
@@ -55,9 +55,9 @@ Laravel forums ships with three mapping strategies:
 ### One-to-one mapping by primary key
 This is the default.  The Vanilla user matches with the application user by primary key, so like "User.id == GDN_User.UserID". In this strategy, you must create, modify, and delete Vanilla users when you create, modify, or delete your application users.  Code like this will get you started:
 ```php
-use \BishopB\Forum\User;
-use \BishopB\Forum\UserRepository;
-use \BishopB\Forum\RoleRepository;
+use \DariusIII\Forum\User;
+use \DariusIII\Forum\UserRepository;
+use \DariusIII\Forum\RoleRepository;
 
 function create_an_app_user() {
     // make this app user a member moderator
@@ -77,10 +77,10 @@ This is the easiest to get going, but may not be efficient. This strategy either
 ```php
 // in app/start.php
 use \Illuminate\Auth\UserInterface as AppUser;
-use \BishopB\Forum\User as VanillaUser;
+use \DariusIII\Forum\User as VanillaUser;
 
-\App::bind('BishopB\Forum\UserMapperInterface', function () {
-    $mapper = new \BishopB\Forum\UserMapperSynchronicity();
+\App::bind('DariusIII\Forum\UserMapperInterface', function () {
+    $mapper = new \DariusIII\Forum\UserMapperSynchronicity();
     $mapper->create_guest_account = null; // when null, guests will not be able
                                           // to access the forums. Change to a 
                                           // closure to implement
@@ -106,10 +106,10 @@ use \BishopB\Forum\User as VanillaUser;
 ### Custom mapping
 Just like it says: custom.  You can totally do anything you want.
 ```php
-\App::bind('BishopB\Forum\UserMapperInterface', function () {
-    $mapper = new \BishopB\Forum\UserMapperByClosure();
+\App::bind('DariusIII\Forum\UserMapperInterface', function () {
+    $mapper = new \DariusIII\Forum\UserMapperByClosure();
     $mapper->setClosure(function (\Illuminate\Auth\UserInterface $user = null) {
-        // do whatever you want, it should return a \BishopB\Forum\User
+        // do whatever you want, it should return a \DariusIII\Forum\User
     });
     return $mapper;
 });
@@ -131,8 +131,8 @@ Vanilla emits events during its operation, and you can use these events to react
 ## Troubleshooting
 Things go wrong.  There's at least a way to peek under the hood and see what the Vanilla engine is doing.  Here you go:
 
-  * Publish the package configuration files: `php artisan config:publish bishopb/laravel-forums`
-  * Edit `app/config/packages/bishopb/laravel-forums/package.php`
+  * Publish the package configuration files: `php artisan config:publish dariusiii/laravel-forums`
+  * Edit `app/config/packages/dariusiii/laravel-forums/package.php`
   * Set all these flags to `true`: `trace`, `trace-include-events`, `trace-include-queries`.
   * Check your `app/storage/logs/laravel.log` for details.
 

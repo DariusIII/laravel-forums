@@ -1,6 +1,6 @@
 <?php
 
-namespace BishopB\Forum;
+namespace DariusIII\Forum;
 
 class User extends BaseModel
 {
@@ -74,7 +74,7 @@ class User extends BaseModel
     public function roles()
     {
         return $this->belongsToMany(
-            '\BishopB\Forum\Role', 'GDN_UserRole', 'UserID', 'RoleID'
+            '\DariusIII\Forum\Role', 'GDN_UserRole', 'UserID', 'RoleID'
         );
     }
 

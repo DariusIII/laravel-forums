@@ -1,5 +1,5 @@
 {
-    "name": "bishopb/laravel-forums",
+    "name": "dariusiii/laravel-forums",
     "description": "Forums and discussion boards for Laravel, using the Vanilla Forums engine.",
     "license": "GPL-2.0",
     "authors": [
@@ -7,29 +7,34 @@
             "name": "Bishop Bettini", "email": "bishop@php.net"
         }
     ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/vanilla/vanilla"
+        }
+    ],
     "require": {
-        "bishopb/vanilla": "2.2.3.6-patch1",
-        "laravel/framework": "~4.2",
-        "watson/validating": "0.10.*",
-        "felixkiss/uniquewith-validator": "1.1.*"
+        "vanilla/vanilla": "dev-master",
+        "laravel/framework": "^5.8",
+        "watson/validating": "^3.2.0",
+        "felixkiss/uniquewith-validator": "^3.2.0"
     },
     "autoload": {
         "classmap": [ "src" ],
         "psr-4": {
-            "BishopB\\Forum\\": "src/"
+            "DariusIII\\Forum\\": "src/"
         }
     },
     "config": {
         "preferred-install": "dist"
     },
-    "minimum-stability": "stable",
     "require-dev": {
-        "mockery/mockery": "~0.9",
-        "phpunit/phpunit": "~4.0"
+        "mockery/mockery": "^1.2.2",
+        "phpunit/phpunit": "^8.0"
     },
     "autoload-dev": {
         "psr-4": {
-            "BishopB\\ForumTest\\": "tests/"
+            "DariusIII\\ForumTest\\": "tests/"
         }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace BishopB\Forum;
+namespace DariusIII\Forum;
 
 class ActivityComment extends BaseModel
 {
@@ -31,7 +31,7 @@ class ActivityComment extends BaseModel
     public function activity()
     {
         return $this->belongsTo(
-            '\BishopB\Forum\Activity', 'ActivityID', 'ActivityID'
+            '\DariusIII\Forum\Activity', 'ActivityID', 'ActivityID'
         );
     }
 }

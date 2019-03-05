@@ -1,6 +1,6 @@
 <?php
 
-namespace BishopB\Forum;
+namespace DariusIII\Forum;
 
 class Discussion extends BaseModel
 {
@@ -51,42 +51,42 @@ class Discussion extends BaseModel
     public function category()
     {
         return $this->hasOne(
-            '\BishopB\Forum\Category', 'CategoryID', 'CategoryID'
+            '\DariusIII\Forum\Category', 'CategoryID', 'CategoryID'
         );
     }
 
     public function comments()
     {
         return $this->hasMany(
-            '\BishopB\Forum\Comment', 'DiscussionID', 'DiscussionID'
+            '\DariusIII\Forum\Comment', 'DiscussionID', 'DiscussionID'
         );
     }
 
     public function first_comment()
     {
         return $this->hasOne(
-            '\BishopB\Forum\Comment', 'CommentID', 'FirstCommentID'
+            '\DariusIII\Forum\Comment', 'CommentID', 'FirstCommentID'
         );
     }
 
     public function last_comment()
     {
         return $this->hasOne(
-            '\BishopB\Forum\Comment', 'CommentID', 'LastCommentID'
+            '\DariusIII\Forum\Comment', 'CommentID', 'LastCommentID'
         );
     }
 
     public function last_commenting_user()
     {
         return $this->hasOne(
-            '\BishopB\Forum\User', 'UserID', 'LastCommentUserID'
+            '\DariusIII\Forum\User', 'UserID', 'LastCommentUserID'
         );
     }
 
     public function regarding()
     {
         return $this->hasOne(
-            '\BishopB\Forum\Regarding', 'RegardingID', 'RegardingID'
+            '\DariusIII\Forum\Regarding', 'RegardingID', 'RegardingID'
         );
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace BishopB\Forum;
+namespace DariusIII\Forum;
 
 use \Illuminate\Auth\UserInterface as AppUser;
 
@@ -13,7 +13,7 @@ class ForumServiceProvider extends \Illuminate\Support\ServiceProvider
 	 */
 	public function boot()
 	{
-		$this->package('bishopb/laravel-forums', 'forum', __DIR__);
+		$this->package('dariusiii/laravel-forums', 'forum', __DIR__);
 
 		require_once __DIR__ . '/boot/helpers.php';
 		require_once __DIR__ . '/boot/routes.php';
@@ -34,7 +34,7 @@ class ForumServiceProvider extends \Illuminate\Support\ServiceProvider
 
         // providers
         $this->app->bind(
-            'BishopB\Forum\UserMapperInterface', 'BishopB\Forum\UserMapperAllGuestAccess'
+            'DariusIII\Forum\UserMapperInterface', 'DariusIII\Forum\UserMapperAllGuestAccess'
         );
 
         // commands

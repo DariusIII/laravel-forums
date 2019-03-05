@@ -1,6 +1,6 @@
 <?php
 
-namespace BishopB\Forum;
+namespace DariusIII\Forum;
 
 /**
  * Define an arbitrary closure to map users.
@@ -10,7 +10,7 @@ class UserMapperByClosure extends AbstractUserMapper
     /**
      * Set the function that maps an application user to a vanilla user.
      *
-     * The closure should return a \BishopB\Forum\User if mapped.
+     * The closure should return a \DariusIII\Forum\User if mapped.
      */
     public function setClosure(callable $closure)
     {
@@ -18,8 +18,8 @@ class UserMapperByClosure extends AbstractUserMapper
     }
 
     /**
-     * @return BishopB\Forum\User
-     * @throws BishopB\Forum\NoVanillaUserMappedToUser
+     * @return DariusIII\Forum\User
+     * @throws DariusIII\Forum\NoVanillaUserMappedToUser
      */
     public function resolve(\Illuminate\Auth\UserInterface $user = null)
     {

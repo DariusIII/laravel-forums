@@ -1,6 +1,6 @@
 <?php
 
-namespace BishopB\Forum;
+namespace DariusIII\Forum;
 
 class Role extends BaseModel
 {
@@ -21,6 +21,6 @@ class Role extends BaseModel
     // relationships
     public function permissions()
     {
-        return $this->hasMany('\BishopB\Forum\Permission', 'RoleID', 'RoleID');
+        return $this->hasMany('\DariusIII\Forum\Permission', 'RoleID', 'RoleID');
     }
 }

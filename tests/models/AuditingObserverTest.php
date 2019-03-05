@@ -1,24 +1,25 @@
 <?php
 
-namespace BishopB\ForumTest;
+namespace DariusIII\ForumTest;
 
 use Mockery as m;
+use PHPUnit\Framework\TestCase;
 
-class AuditingObserverTest extends \PHPUnit_Framework_TestCase
+class AuditingObserverTest extends TestCase
 {
-    public static function setupBeforeClass()
+    public static function setupBeforeClass(): void
     {
         eval(sprintf(
-            'namespace BishopB\Forum; function date() { return %s; }',
+            'namespace DariusIII\Forum; function date() { return %s; }',
             var_export('2013-05-13 21:56:00', true)
         ));
         eval(sprintf(
-            'namespace BishopB\ForumTest; function date() { return %s; }',
+            'namespace DariusIII\ForumTest; function date() { return %s; }',
             var_export('2013-05-13 21:56:00', true)
         ));
     }
 
-    public function setup()
+    public function setup(): void
     {
         $this->mocks['auth'] = m::mock('\Illuminate\Auth\AuthManager');
         $this->mocks['auth']->shouldReceive('user->getKey')->andReturn(242);
@@ -28,7 +29,7 @@ class AuditingObserverTest extends \PHPUnit_Framework_TestCase
     }
 
 
-    public function tearDown()
+    public function tearDown(): void
     {
         m::close();
     }
@@ -36,14 +37,14 @@ class AuditingObserverTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider provides_model_data
      */
-    public function test_model_create_adds_required_auditing_fields(array $data)
+    public function test_model_create_adds_required_auditing_fields(array $data): void
     {
         $model = $this->get_mock_model($data);
 
         // run system under test
         $auth = $this->mocks['auth'];
         $req  = $this->mocks['request'];
-        $observer = new \BishopB\Forum\AuditingObserver($auth, $req);
+        $observer = new \DariusIII\Forum\AuditingObserver($auth, $req);
         $observer->creating($model);
 
         // check observer updated the model as expected
@@ -76,14 +77,14 @@ class AuditingObserverTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider provides_model_data
      */
-    public function test_model_update_adds_required_auditing_fields($data)
+    public function test_model_update_adds_required_auditing_fields($data): void
     {
         $model = $this->get_mock_model($data);
 
         // run system under test
         $auth = $this->mocks['auth'];
         $req  = $this->mocks['request'];
-        $observer = new \BishopB\Forum\AuditingObserver($auth, $req);
+        $observer = new \DariusIII\Forum\AuditingObserver($auth, $req);
         $observer->updating($model);
 
         // check expectations
@@ -119,14 +120,14 @@ class AuditingObserverTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider provides_model_data
      */
-    public function test_model_delete_adds_required_auditing_fields($data)
+    public function test_model_delete_adds_required_auditing_fields($data): void
     {
         $model = $this->get_mock_model($data);
 
         // run system under test
         $auth = $this->mocks['auth'];
         $req  = $this->mocks['request'];
-        $observer = new \BishopB\Forum\AuditingObserver($auth, $req);
+        $observer = new \DariusIII\Forum\AuditingObserver($auth, $req);
         $observer->deleting($model);
 
         // check expectations

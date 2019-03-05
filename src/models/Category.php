@@ -1,6 +1,6 @@
 <?php
 
-namespace BishopB\Forum;
+namespace DariusIII\Forum;
 
 /**
  * TODO: Implement Nested Set add, move, remove operations.
@@ -57,14 +57,14 @@ class Category extends BaseModel
     public function last_comment()
     {
         return $this->hasOne(
-            '\BishopB\Forum\Comment', 'CommentID', 'LastCommentID'
+            '\DariusIII\Forum\Comment', 'CommentID', 'LastCommentID'
         );
     }
 
     public function last_discussion()
     {
         return $this->hasOne(
-            '\BishopB\Forum\Discussion', 'DiscussionID', 'LastDiscussionID'
+            '\DariusIII\Forum\Discussion', 'DiscussionID', 'LastDiscussionID'
         );
     }
 }

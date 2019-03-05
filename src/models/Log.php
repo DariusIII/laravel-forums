@@ -1,6 +1,6 @@
 <?php
 
-namespace BishopB\Forum;
+namespace DariusIII\Forum;
 
 class Log extends BaseModel
 {
@@ -42,11 +42,11 @@ class Log extends BaseModel
     // relations
     public function record_user()
     {
-        return $this->hasOne('\BishopB\Forum\User', 'UserID', 'RecordUserID');
+        return $this->hasOne('\DariusIII\Forum\User', 'UserID', 'RecordUserID');
     }
 
     public function category()
     {
-        return $this->hasOne('\BishopB\Forum\Category', 'CategoryID', 'CategoryID');
+        return $this->hasOne('\DariusIII\Forum\Category', 'CategoryID', 'CategoryID');
     }
 }
